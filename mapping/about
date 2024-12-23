@@ -1,0 +1,6 @@
+This directory contains the code I've used to make the base maps in sampling, admixture, and other maps.
+Generally, this process entails: 
+- Retrieving a shapefile for the area of interest
+- Downloading elevation data from within the confines of the shapefile
+- Calculating slope and aspect to create a "shaded" effect
+- Plotting semi-transparent elevation raster over "hillshaded" layer to create a shaded relief map
