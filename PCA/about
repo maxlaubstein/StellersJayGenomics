@@ -1,1 +1,4 @@
 Scripts for running and plotting PCA of both whole genome data and mitochondrial scaffold.
+
+STJAPCA and STJAGenomic PCA contain data and scripts for PCA of unlinked SNPs across the genome
+
