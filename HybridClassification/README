@@ -1,0 +1,3 @@
+This directory contains scripts used to classify the hybrid individuals found within the SE Idaho - Utah contact zone between ssp. annectens and ssp. macrolopha.
+LD pruned dataset of all 310 individuals subsetted to just the contact zone samples, pure macrolopha, and pure annectens samples.
+This results in vcf of 498368 LD pruned SNPs in file "Cyanocitta_LDPruned_NWInt_Rocky.vcf.recode.vcf".  Cyanocitta_LDPruned_NWInt_Rocky.vcf.log contains process used to create this file.
