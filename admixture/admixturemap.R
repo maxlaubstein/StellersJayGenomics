@@ -83,17 +83,3 @@ ggplot()+
   geom_scatterpie(data = localitysummary, aes(x=longitude,y=latitude, r = .3), cols = c("averageV1", "averageV2", "averageV3", "averageV4", "averageV5", "averageV6"), show.legend = FALSE)+
   scale_fill_manual(values = alpha(c("#fd7f6f", "cyan","#ffb55a", "#b2e061", "#7eb0d5", "#ffee65"), 0.6))+
   theme_minimal()
-
-#SAMPLING MAP
-ggplot()+
-  geom_tile(data = hillshade.df, aes(x=Longitude, y = Latitude, fill = hillshade), show.legend = FALSE)+
-  scale_fill_distiller(palette = "Greys", direction = 1)+
-  new_scale_fill()+
-  geom_tile(data = regionelev.df, aes(x=Longitude, y = Latitude, fill = Elevation), alpha = 0.5)+
-  scale_fill_distiller(palette = "Greys", direction = 1)+
-  geom_sf(data = region, fill = NA, lwd = .6)+
-  coord_sf(xlim = c(-130, -103.5), ylim = c(30, 50), expand = FALSE)+
-  new_scale_fill()+
-  geom_point(data = localitysummary, aes(x=longitude, y=latitude, size = samplesize), fill = alpha("#3A74A1", .75), color = 'black', pch = 21)+
-  scale_size_continuous(range = c(2.5, 7))+
-  theme_minimal()
