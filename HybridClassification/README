@@ -4,3 +4,5 @@ This results in vcf of 498368 LD pruned SNPs in file "pops80-102_LD_Pruned.vcf".
 This vcf was then further filtered to only include SNPs fixed between parental annectens (pops 80-82) and macrolopha (89-102) samples.
 The file pops80-102_LD_Pruned_fixed.recode.vcf contains these 8479 fixed SNPs.
 fixedSNPs.sh includes the commands used in this process.
+
+triangleplotting.R includes R code to generate a triangle plot of heterozygosity vs hybrid index calculated from these SNPs.
