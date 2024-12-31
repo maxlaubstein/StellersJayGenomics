@@ -12,6 +12,3 @@ plink --file unlinkedforEEMS --make-bed --out unlinkedforEEMS
 
 #Use bed2diffs to create genetic (dis)similarity matrix
 ../eems/bed2diffs/src/bed2diffs_v1 --bfile unlinkedforEEMS --nthreads 2
-
-#Now run eems, using params file
-../eems/runeems_snps/src/runeems_snps --params params.400demes  --seed 123
