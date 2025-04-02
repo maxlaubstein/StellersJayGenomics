@@ -17,8 +17,6 @@ awk '{if ($3 < 0) $3=0; print}' fst84_85.weir.fst > tmp && mv tmp fst84_85.weir.
 awk '{if ($3 < 0) $3=0; print}' fst85_86.weir.fst > tmp && mv tmp fst85_86.weir.fst
 awk '{if ($3 < 0) $3=0; print}' fst86_87.weir.fst > tmp && mv tmp fst86_87.weir.fst
 
-fst83_84.weir.fst > tmp && mv tmp fst83_84.weir.fst
-
 awk '!/-nan/'  fst83_84.weir.fst > tmp && mv tmp fst83_84.weir.fst
 awk '!/-nan/'  fst84_85.weir.fst > tmp && mv tmp fst84_85.weir.fst
 awk '!/-nan/'  fst85_86.weir.fst > tmp && mv tmp fst85_86.weir.fst
