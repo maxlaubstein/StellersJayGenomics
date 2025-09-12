@@ -1,6 +1,6 @@
 #!/bin/bash
 
-cd /media/maxlaubstein/data1/STJARangewideGenomics/data
+cd /media/maxlaubstein/data1/STJARangewideGenomics/vcfdata
 
 #Process the raw vcf file to include only biallelic SNPs with a minor allele frequency of 0.05 and maximum missingness of 0.25
 
