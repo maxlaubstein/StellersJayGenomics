@@ -4,7 +4,7 @@ cd /media/maxlaubstein/data1/STJARangewideGenomics/vcfdata
 
 #Process the raw vcf file to include only biallelic SNPs with a minor allele frequency of 0.05 and maximum missingness of 0.25
 
-vcftools --gzvcf /media/maxlaubstein/data1/STJARangewideGenomics/data/41-Cyanocitta_raw.vcf.gz \
+vcftools --gzvcf /media/maxlaubstein/data1/STJARangewideGenomics/vcfdata/41-Cyanocitta_raw.vcf.gz \
   --bed 41-Cyanocitta_callable_sites.bed \
   --min-alleles 2 \
   --max-alleles 2 \
@@ -23,7 +23,7 @@ tabix -p vcf Cyanocitta_clean.vcf.gz
 
 #Generate a version of the 'clean' vcf file with only autosomal SNPs, removing the known sex-linked and mitochondrial scaffolds:
 
-vcftools --gzvcf /media/maxlaubstein/data1/STJARangewideGenomics/data/Cyanocitta_clean.vcf.gz \
+vcftools --gzvcf /media/maxlaubstein/data1/STJARangewideGenomics/vcfdata/Cyanocitta_clean.vcf.gz \
   --not-chr JANXIP010000003.1 \
   --not-chr JANXIP010000028.1 \
   --not-chr JANXIP010000079.1 \
@@ -40,7 +40,7 @@ tabix -p vcf Cyanocitta_Clean_Autosomal.vcf.gz
 
 #Generate a version of the 'clean' autosomal VCF excluding the Mesoamerican samples
 
-vcftools --gzvcf /media/maxlaubstein/data1/STJARangewideGenomics/data/Cyanocitta_Clean_Autosomal.vcf.gz \
+vcftools --gzvcf /media/maxlaubstein/data1/STJARangewideGenomics/vcfdata/Cyanocitta_Clean_Autosomal.vcf.gz \
   --min-alleles 2 \
   --max-alleles 2 \
   --remove-indv MVZ188144 \
@@ -59,7 +59,7 @@ tabix -p vcf Cyanocitta_Clean_Autosomal_No_Mesoamerica.vcf.gz
 
 #Generate a linkage disequilibrium pruned VCF from the clean autosomal data:
 
-plink --vcf /media/maxlaubstein/data1/STJARangewideGenomics/data/Cyanocitta_Clean_Autosomal.vcf.gz \
+plink --vcf /media/maxlaubstein/data1/STJARangewideGenomics/vcfdata/Cyanocitta_Clean_Autosomal.vcf.gz \
   --const-fid \
   --allow-extra-chr \
   --allow-no-sex \
@@ -67,7 +67,7 @@ plink --vcf /media/maxlaubstein/data1/STJARangewideGenomics/data/Cyanocitta_Clea
   --indep-pairwise 50 10 0.1 \
   --out Cyanocitta_LDPruned_Autosomal
 
-plink --vcf /media/maxlaubstein/data1/STJARangewideGenomics/data/Cyanocitta_Clean_Autosomal.vcf.gz  \
+plink --vcf /media/maxlaubstein/data1/STJARangewideGenomics/vcfdata/Cyanocitta_Clean_Autosomal.vcf.gz  \
   --const-fid \
   --allow-extra-chr \
   --allow-no-sex \
@@ -94,7 +94,7 @@ rm samplenamemap
 
 #Generate a version of the LD-pruned autosomal VCF excluding the Mesoamerican samples:
 
-vcftools --gzvcf /media/maxlaubstein/data1/STJARangewideGenomics/data/Cyanocitta_LDPruned_Autosomal.vcf.gz  \
+vcftools --gzvcf /media/maxlaubstein/data1/STJARangewideGenomics/vcfdata/Cyanocitta_LDPruned_Autosomal.vcf.gz  \
   --min-alleles 2 \
   --max-alleles 2 \
   --remove-indv MVZ188144 \
