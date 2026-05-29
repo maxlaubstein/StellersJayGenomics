@@ -2,14 +2,14 @@
 
 cd /media/maxlaubstein/data1/STJARangewideGenomics/vcfdata
 
-#Process the raw vcf file to include only biallelic SNPs with a minor allele frequency of 0.05 and maximum missingness of 0.25
+#Process the raw vcf file to include only biallelic SNPs with a minor allele frequency of 0.01 and no missing sites
 
 vcftools --gzvcf /media/maxlaubstein/data1/STJARangewideGenomics/vcfdata/41-Cyanocitta_raw.vcf.gz \
   --bed 41-Cyanocitta_callable_sites.bed \
   --min-alleles 2 \
   --max-alleles 2 \
   --max-missing 1.0 \
-  --maf 0.05 \
+  --maf 0.01 \
   --remove-indels \
   --recode \
   --recode-INFO-all \
@@ -43,6 +43,8 @@ tabix -p vcf Cyanocitta_Clean_Autosomal.vcf.gz
 vcftools --gzvcf /media/maxlaubstein/data1/STJARangewideGenomics/vcfdata/Cyanocitta_Clean_Autosomal.vcf.gz \
   --min-alleles 2 \
   --max-alleles 2 \
+  --mac 1 \
+  --maf 0.01 \
   --remove-indv MVZ188144 \
   --remove-indv MVZ189266 \
   --remove-indv MVZ189267 \
@@ -97,6 +99,8 @@ rm samplenamemap
 vcftools --gzvcf /media/maxlaubstein/data1/STJARangewideGenomics/vcfdata/Cyanocitta_LDPruned_Autosomal.vcf.gz  \
   --min-alleles 2 \
   --max-alleles 2 \
+  --mac 1 \
+  --maf 0.01\
   --remove-indv MVZ188144 \
   --remove-indv MVZ189266 \
   --remove-indv MVZ189267 \
@@ -110,5 +114,3 @@ mv Cyanocitta_LDPruned_Autosomal_No_Mesoamerica.recode.vcf Cyanocitta_LDPruned_A
 bgzip Cyanocitta_LDPruned_Autosomal_No_Mesoamerica.vcf
 
 tabix -p vcf Cyanocitta_LDPruned_Autosomal_No_Mesoamerica.vcf.gz
-
-
