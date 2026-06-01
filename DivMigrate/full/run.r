@@ -1,10 +1,9 @@
 set.seed(16)
-system("makepopmap.sh") #generate the popmap file
 system(" ./vcf2genepop.sh --vcf /media/maxlaubstein/data1/STJARangewideGenomics/vcfdata/Cyanocitta_LDPruned_Autosomal_No_Mesoamerica.vcf.gz") #convert vcf to GENEPOP
 library(parallel)
 library(diveRsity)
-source("divMigrate.R")
-source("rgp.R")
+source("../divMigrate.R")
+source("../rgp.R")
 message("Running DivMigrate...")
 output <- divMigrate("GENEPOP", para = TRUE, stat = "Nm")
 message("Writing Output...")
