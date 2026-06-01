@@ -1,0 +1,13 @@
+set.seed(16)
+system(" ./vcf2genepop.sh --vcf /media/maxlaubstein/data1/STJARangewideGenomics/vcfdata/Cyanocitta_LDPruned_Autosomal_No_Mesoamerica.vcf.gz") #convert vcf to GENEPOP
+library(parallel)
+library(diveRsity)
+source("../divMigrate.R")
+source("../rgp.R")
+message("Running DivMigrate...")
+output <- divMigrate("GENEPOP", boots = 1000, para = TRUE, stat = "Nm")
+message("Writing Output...")
+write.table(output$nmRelMig, "nmRelMig.txt")
+write.table(output$nmRelMigSig, "nmRelMigSig.txt")
+message("Done!")
+
