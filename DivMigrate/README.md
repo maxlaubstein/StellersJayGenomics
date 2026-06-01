@@ -1,3 +1,4 @@
+![Uploading Screenshot 2026-06-01 at 5.03.50 PM.png…]()
 Estimating migration rates (Nm) between specified population groupings of Steller's Jays with DivMigrate.
 
 In the directory ```full``` I use the full autosomal snp dataset to get point estimates of Nm, but dont estimate asymmetry.
