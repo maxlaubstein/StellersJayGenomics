@@ -57,5 +57,5 @@ ridge_results <- lfmm_run(gen, env$var, K = 4, lfmm_method = "ridge")
 
 message("Saving Output...")
 
-write.table(ridge_results$df, file = paste0(vcf,"_", basename(tif)))
+write.table(ridge_results$df, file = paste0(vcf,"_", basename(tif), "_ridge_results.txt"))
 
