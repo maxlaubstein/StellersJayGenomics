@@ -1,0 +1,23 @@
+#June 1 2026
+#Rscript run.r
+Converting File /media/maxlaubstein/data1/STJARangewideGenomics/vcfdata/Cyanocitta_LDPruned_Autosomal_No_Mesoamerica.vcf.gz to GENEPOP Format
+Extracting Genotype Matrix from VCF File
+Creating GENEPOP Header
+Creating Population Genotype Tables
+Processing Population 1
+Processing Population 2
+Processing Population 3
+Processing Population 4
+Processing Population 5
+Processing Population 6
+Processing Population 7
+Processing Population 8
+Processing Population 9
+Processing Population 10
+Processing Population 11
+Assembling GENEPOP File
+Done!
+# SNPs =  2161302
+Running DivMigrate...
+Writing Output...
+Done!
