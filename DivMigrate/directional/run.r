@@ -1,6 +1,6 @@
 set.seed(16)
 #thin the vcf:
-system("vcftools /media/maxlaubstein/data1/STJARangewideGenomics/vcfdata/Cyanocitta_LDPruned_Autosomal_No_Mesoamerica.vcf.gz --thin 9000 --out thinned_nomeso --recode")
+system("vcftools --gzvcf /media/maxlaubstein/data1/STJARangewideGenomics/vcfdata/Cyanocitta_LDPruned_Autosomal_No_Mesoamerica.vcf.gz --thin 9000 --out thinned_nomeso --recode")
 system("bgzip -c thinned_nomeso.recode.vcf > thinned_nomeso.vcf.gz") #bgzip the thinned vcf
 system(" ./vcf2genepop.sh --vcf thinned_nomeso.vcf.gz") #convert vcf to GENEPOP
 library(parallel)
