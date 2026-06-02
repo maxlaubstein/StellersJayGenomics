@@ -1,5 +1,3 @@
-setwd("/media/maxlaubstein/data1/STJARangewideGenomics/GEA2/LFMM")
-
 library(terra)
 library(geodata)
 library(readxl)
