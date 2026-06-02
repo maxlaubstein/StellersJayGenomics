@@ -87,8 +87,3 @@ pairs.panels(env[,c("bio1", "bio2", "bio3", "bio4", "bio5", "bio6",
 		"bio19", "minTwarmest", "PETdriest", "PETseasonality")], scale = TRUE)
 
 dev.off()
-
-print(vifcor(env[,c("bio1", "bio2", "bio3", "bio4", "bio5", "bio6",
-                "bio7", "bio8", "bio9", "bio10", "bio11", "bio12",
-                "bio13", "bio14", "bio15", "bio16", "bio17", "bio18",
-                "bio19", "minTwarmest", "PETdriest", "PETseasonality")], th = 0.65))
