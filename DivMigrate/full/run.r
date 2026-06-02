@@ -10,3 +10,13 @@ message("Writing Output...")
 write.table(output$nmRelMig, "nmRelMig.txt")
 write.table(output$nmRelMigSig, "nmRelMigSig.txt")
 message("Done!")
+
+
+#Now create a table with the mean bidirectional rates:
+pops <- readLines("pops")
+nm <- read.table("nmRelMig.txt")
+colnames(nm) <- rownames(nm) <- pops
+
+means <- (nm + t(nm))/2
+means == t(means)
+write.table(means, "mean_bidirectional_nm.txt")
