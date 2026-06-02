@@ -1,3 +1,4 @@
+set.seed(16)
 library(terra)
 library(geodata)
 library(readxl)
