@@ -1,0 +1,38 @@
+#Rscript run.r
+
+VCFtools - 0.1.16
+(C) Adam Auton and Anthony Marcketta 2009
+
+Parameters as interpreted:
+        --gzvcf /media/maxlaubstein/data1/STJARangewideGenomics/vcfdata/Cyanocitta_LDPruned_Autosomal_No_Mesoamerica.vcf.gz
+        --thin 9000
+        --out thinned_nomeso
+        --recode
+
+Using zlib version: 1.2.11
+Warning: Expected at least 2 parts in INFO entry: ID=PR,Number=0,Type=Flag,Description="Provisional reference allele, may not be based on real reference genome">
+After filtering, kept 306 out of 306 Individuals
+Outputting VCF file...
+After filtering, kept 102449 out of a possible 2161302 Sites
+Run Time = 15.00 seconds
+Converting File thinned_nomeso.vcf.gz to GENEPOP Format
+Extracting Genotype Matrix from VCF File
+Creating GENEPOP Header
+Creating Population Genotype Tables
+Processing Population 1
+Processing Population 2
+Processing Population 3
+Processing Population 4
+Processing Population 5
+Processing Population 6
+Processing Population 7
+Processing Population 8
+Processing Population 9
+Processing Population 10
+Processing Population 11
+Assembling GENEPOP File
+Done!
+# SNPs =  102449
+Running DivMigrate...
+Writing Output...
+Done!
