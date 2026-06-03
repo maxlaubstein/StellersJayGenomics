@@ -7,15 +7,17 @@ library(ggplot2)
 library(dplyr)
 library(algatr)
 library(vcfR)
+library(data.table)
+library(readr)
 
 args <- commandArgs(trailingOnly = TRUE)
 
 # Check that we got arguments
 if(length(args) != 2){
-  stop("Usage: Rscript run_LFMM.r <vcf> <env_tif>")
+  stop("Usage: Rscript run_LFMM.r <012_matrix> <env_tif>")
 }
 
-vcf <- args[1]
+gt_matrix <- args[1]
 tif <- args[2]
 
 metadata <- read_excel("/media/maxlaubstein/data1/STJARangewideGenomics/1_Cyanocitta_stelleri_WGS_metadata_allsamples_fulldata_v2.xlsx")
@@ -24,9 +26,13 @@ metadata <- subset(metadata, metadata$isolate != "Middle America")
 #At 2.5 arcminute resolution, it thinks this one sample from San Luis Obispo is in the ocean, and returns NA for envirem data. Here I just slightly nudge the latitude to push the point 'on land'
 metadata[metadata$sample_name == "MVZCCGP-Cst97_I-B07",]$latitude <- 35.573797
 
-#convert vcf to dosage matrix
-gen <- vcf_to_dosage(vcf)
-
+#algatr provides function vcf_to_dosage(vcf) built around vcfr, but it is verrry slow.
+#a faster workaround i found is just to use vcftools --012 and built gen object straight from that
+gen <- fread(gt_matrix, header = FALSE)
+gen <- gen[, -1]
+rownames(gen) <- read_lines(paste0(gt_matrix, ".indv"))
+pos <- read.delim(paste0(gt_matrix, ".pos"), header = FALSE, stringsAsFactors = FALSE)
+colnames(gen) <- paste(pos$V1, pos$V2, sep = ":")
 #becauce vcf has already been filtered to only non-missing sites, I don't need to impute with simple_impute(gen)
 
 #### Preparing Environmental Data:
@@ -56,5 +62,5 @@ ridge_results <- lfmm_run(gen, env$var, K = 4, lfmm_method = "ridge")
 
 message("Saving Output...")
 
-write.table(ridge_results$df, file = paste0(vcf,"_", basename(tif), "_ridge_results.txt"))
+write.table(ridge_results$df, file = paste0(basename(tif), "_ridge_results.txt"))
 
