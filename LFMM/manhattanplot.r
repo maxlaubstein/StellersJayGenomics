@@ -12,6 +12,7 @@ data <- data %>%
   arrange(scaffold, pos) %>%
   mutate(order = row_number())
 
+message("Plotting...")
 
 plot <- ggplot(data, aes(x=order, y=log10p)) +
   geom_point_rast(size = 0.5, aes(color = as.factor(scaffold)), alpha = 0.5, raster.dpi = 1000) +
@@ -28,5 +29,7 @@ plot <- ggplot(data, aes(x=order, y=log10p)) +
   xlab("SNPs Ordered Across Scaffolds") +
   ylim(0,6)
 
-
+message(paste0("Saving Plot to ", args[1], "_manhattan.pdf...")
 ggsave(paste0(args[1], "_manhattan.pdf"), plot = plot, width = 7, height = 2, device = "pdf")
+
+message("Done!")
