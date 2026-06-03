@@ -4,11 +4,17 @@ library(data.table)
 library(ggrastr)
 
 args <- commandArgs(trailingOnly = TRUE)
+message("Reading Data...")
 data <- fread(args[1])
+
+message("Formatting Scaffolds...")
 data$scaffold <- round(as.integer(substr(data$chr, 10, 15)))
+
+message("Correcting p-values...")
 data$p_adj <- p.adjust(data$p_var, method = "fdr")
 data$log10p_adj <- -log10(data$p_adj)
 
+message("Ordering Scaffolds...")
 data <- data %>%
   arrange(scaffold, pos) %>%
   mutate(order = row_number())
