@@ -85,7 +85,7 @@ cd input
 Rscript ../make_env_data.r ../NAmerica_current_2.5arcmin_geotiff/current_2-5arcmin_PETWettestQuarter.tif Cyanocitta_Clean_Autosomal_No_Mesoamerica.fam
 cd ../
 schnellfmm --bed input/Cyanocitta_Clean_Autosomal_No_Mesoamerica.bed \
-    --cov input/current_2-5arcmin_PETWettestQuarter.tsv \
+    --cov input/current_2-5arcmin_PETWettestQuarter.tif.tsv \
     -k 4 \
     --verbose \
     --out output/PETWettest \
