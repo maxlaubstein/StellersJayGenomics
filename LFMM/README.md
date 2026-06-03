@@ -3,7 +3,7 @@ Genotype-Environment Association analysis using Latent Factor Mixed Modeling (LF
 
 The script ```envcoor.r``` looks at (and plots) correlations between all of the different bioclim and some envirem variables.
 
-The script ```run_LFMM.r``` runs LFMM on a provided 012 genotype dosage matrix and tif raster file, with the usage ```Rscript run_LFMM.r <012_matrix> <tif>```.
+The script ```run_LFMM.r``` runs LFMM on a provided 012 genotype dosage matrix and tif raster file, with the usage ```Rscript run_LFMM.r <gt_matrix> <tif>```.
 
 I generated the dosage matrix from a vcf file as follows:
 
