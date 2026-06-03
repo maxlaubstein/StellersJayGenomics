@@ -18,7 +18,7 @@ plink --vcf /media/maxlaubstein/data1/STJARangewideGenomics/vcfdata/Cyanocitta_C
     --out Cyanocitta_Clean_Autosomal_No_Mesoamerica
 ~~~
 
-Then, for bio5 as an example, I use ```make_env_data.r``` to make tsv with environmental values for each sample (in the same order as the plink bed file): 
+Then, for bio5 as an example, I use ```make_env_data.r``` to make a tsv with environmental values for each sample (in the same order as the plink bed file): 
 ~~~
 Rscript ../make_env_data.r ../globalworldclim/climate/wc2.1_2.5m/wc2.1_2.5m_bio_5.tif Cyanocitta_Clean_Autosomal_No_Mesoamerica.fam```
 ~~~
