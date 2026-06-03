@@ -13,14 +13,13 @@ args <- commandArgs(trailingOnly = TRUE)
 
 # Check that we got arguments
 if(length(args) != 2){
-  stop("Usage: Rscript run_LFMM.r <vcf> <env_tif>")
+  stop("Usage: Rscript run_LFMM.r <gt_matrix> <env_tif>")
 }
 
-vcf <- args[1]
+gt_matrix <- args[1]
+#gt_matrix is dosage matrix from vcftools --012, with first column (row numbers) removed
 tif <- args[2]
 
-#get the sample names in order in the vcf:
-system(paste0("bcftools query -l ", vcf, " > ", vcf, ".samplenames"))
 
 metadata <- read_excel("/media/maxlaubstein/data1/STJARangewideGenomics/1_Cyanocitta_stelleri_WGS_metadata_allsamples_fulldata_v2.xlsx")
 metadata <- subset(metadata, metadata$isolate != "Middle America")
@@ -35,7 +34,7 @@ env_var_rast <- rast(tif)
 
 #create env dataframe with the variable values for each coordinate
 env <- data.frame(
-  individual = readr::read_lines(paste0(vcf, ".samplenames"))
+  individual = readr::read_lines(paste0(gt_matrix, ".indv"))
 )
 
 for(i in 1:nrow(env)){
@@ -50,7 +49,7 @@ env$var <- raster::extract(env_var_rast, cbind(env$long, env$lat))[,1]
 write.table(env$var, file = paste0(basename(tif), ".env"), row.names = FALSE, col.names = FALSE, quote = FALSE)
 
 message("Running LFMM...")
-ridge_results <- LEA::lfmm2(input = vcf, env = paste0(basename(tif), ".env"), K = 4)
+ridge_results <- LEA::lfmm2(input = gt_matrix, env = paste0(basename(tif), ".env"), K = 4)
 
 message("Saving Output...")
 
