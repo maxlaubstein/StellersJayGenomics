@@ -1,10 +1,8 @@
+library(dplyr)
 library(terra)
 library(geodata)
 library(readxl)
 library(raster)
-library(ggplot2)
-library(dplyr)
-library(LEA)
 library(data.table)
 library(readr)
 
@@ -12,12 +10,11 @@ args <- commandArgs(trailingOnly = TRUE)
 
 # Check that we got arguments
 if(length(args) != 2){
-  stop("Usage: Rscript run_LFMM.r <gt_matrix> <env_tif>")
+  stop("Usage: Rscript make_env_data.r <env_tif> <plink_fam>")
 }
 
-gt_matrix <- args[1]
-#gt_matrix is dosage matrix from vcftools --012, with first column (row numbers) removed
-tif <- args[2]
+tif <- args[1]
+fam <- args[2]
 
 
 metadata <- read_excel("/media/maxlaubstein/data1/STJARangewideGenomics/1_Cyanocitta_stelleri_WGS_metadata_allsamples_fulldata_v2.xlsx")
@@ -33,7 +30,7 @@ env_var_rast <- rast(tif)
 
 #create env dataframe with the variable values for each coordinate
 env <- data.frame(
-  individual = readr::read_lines(paste0(gt_matrix, ".indv"))
+  individual = read.table(fam)$V2
 )
 
 for(i in 1:nrow(env)){
@@ -44,12 +41,9 @@ for(i in 1:nrow(env)){
 }
 
 env$var <- raster::extract(env_var_rast, cbind(env$long, env$lat))[,1]
+
 #write env data to file:
-write.table(env$var, file = paste0(basename(tif), ".env"), row.names = FALSE, col.names = FALSE, quote = FALSE)
+env <- env %>% dplyr::select("individual", "var")
+write.table(env, file = paste0(basename(tif), ".tsv"), row.names = FALSE, col.names = TRUE, quote = FALSE)
 
-message("Running LFMM...")
-ridge_results <- LEA::lfmm2(input = gt_matrix, env = paste0(basename(tif), ".env"), K = 4)
-
-message("Saving Output...")
-save(ridge_results, file = paste0(basename(tif), "_ridge_results.RData"))
 
