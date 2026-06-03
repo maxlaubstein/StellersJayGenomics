@@ -19,7 +19,7 @@ Because (as far as I can tell) LFMM runs single threaded, I wrote this so I coul
 
 ~~~
 Rscript run_LFMM.r \
-  /media/maxlaubstein/data1/STJARangewideGenomics/vcfdata/Cyanocitta_Clean_Autosomal_No_Mesoamerica.vcf.gz \
+  gtmatrix/Cyanocitta_Clean_Autosomal_No_Mesoamerica.012 \
   globalworldclim/climate/wc2.1_2.5m/wc2.1_2.5m_bio_5.tif 
 ~~~
 
