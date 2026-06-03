@@ -17,8 +17,6 @@ mv tmp Cyanocitta_Clean_Autosomal_No_Mesoamerica.012
 cd ../
 ~~~
 
-algatr has a built in function to do this built around vcfR, but it is very slow compared to vcftools.
-
 Because (as far as I can tell) LFMM runs single threaded, I wrote this so I could run LFMM separately for each variable of interest in a separate screen session. For example, in separate screen sessions:
 
 ~~~
