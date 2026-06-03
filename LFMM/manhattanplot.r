@@ -5,7 +5,7 @@ library(ggrastr)
 
 args <- commandArgs(trailingOnly = TRUE)
 data <- fread(args[1])
-data$scaffold <- data$chr <- sub(".*\\.", "", data$chr)
+data$scaffold <- sub(".*\\.", "", data$chr)
 data$log10p <- -log10(data$p_var)
 
 data <- data %>%
@@ -29,7 +29,7 @@ plot <- ggplot(data, aes(x=order, y=log10p)) +
   xlab("SNPs Ordered Across Scaffolds") +
   ylim(0,6)
 
-message(paste0("Saving Plot to ", args[1], "_manhattan.pdf...")
+message(paste0("Saving Plot to ", args[1], "_manhattan.pdf..."))
 ggsave(paste0(args[1], "_manhattan.pdf"), plot = plot, width = 7, height = 2, device = "pdf")
 
 message("Done!")
