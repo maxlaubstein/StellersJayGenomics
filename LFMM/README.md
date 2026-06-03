@@ -12,8 +12,7 @@ mkdir -p gtmatrix
 vcftools --gzvcf /media/maxlaubstein/data1/STJARangewideGenomics/vcfdata/Cyanocitta_Clean_Autosomal_No_Mesoamerica.vcf.gz --012 --out Cyanocitta_Clean_Autosomal_No_Mesoamerica
 mv Cyanocitta_Clean_Autosomal_No_Mesoamerica* gtmatrix/
 cd gtmatrix
-cut -f2- Cyanocitta_Clean_Autosomal_No_Mesoamerica.012 > tmp #get rid of rownumbers
-mv tmp Cyanocitta_Clean_Autosomal_No_Mesoamerica.012
+cut -f2- Cyanocitta_Clean_Autosomal_No_Mesoamerica.012 > Cyanocitta_Clean_Autosomal_No_Mesoamerica.lfmm #get rid of rownumbers
 cd ../
 ~~~
 
