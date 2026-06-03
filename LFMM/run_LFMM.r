@@ -26,10 +26,14 @@ metadata <- subset(metadata, metadata$isolate != "Middle America")
 #At 2.5 arcminute resolution, it thinks this one sample from San Luis Obispo is in the ocean, and returns NA for envirem data. Here I just slightly nudge the latitude to push the point 'on land'
 metadata[metadata$sample_name == "MVZCCGP-Cst97_I-B07",]$latitude <- 35.573797
 
+
+message("Reading Genotype Data...")
+
 #algatr provides function vcf_to_dosage(vcf) built around vcfr, but it is verrry slow.
 #a faster workaround i found is just to use vcftools --012 and built gen object straight from that
 gen <- fread(gt_matrix, header = FALSE)
 gen <- gen[, -1]
+gen <- as.matrix(gen)
 rownames(gen) <- read_lines(paste0(gt_matrix, ".indv"))
 pos <- read.delim(paste0(gt_matrix, ".pos"), header = FALSE, stringsAsFactors = FALSE)
 colnames(gen) <- paste(pos$V1, pos$V2, sep = ":")
