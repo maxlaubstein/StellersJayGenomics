@@ -79,6 +79,20 @@ schnellfmm --bed input/Cyanocitta_Clean_Autosomal_No_Mesoamerica.bed \
     --seed 1
 ~~~
 
+~~~
+#PETWettest
+cd input
+Rscript ../make_env_data.r ../NAmerica_current_2.5arcmin_geotiff/current_2-5arcmin_PETWettestQuarter.tif Cyanocitta_Clean_Autosomal_No_Mesoamerica.fam
+cd ../
+schnellfmm --bed input/Cyanocitta_Clean_Autosomal_No_Mesoamerica.bed \
+    --cov input/current_2-5arcmin_PETWettestQuarter.tsv \
+    -k 4 \
+    --verbose \
+    --out output/PETWettest \
+    --threads 4 \
+    --seed 1
+~~~
+
 
 Plot of correlations between different bioclim/envirem variables: 
 <img width="766" height="757" alt="Screenshot 2026-06-02 at 5 51 48 PM" src="https://github.com/user-attachments/assets/989f269f-9ce1-4bc5-b074-8f7f5a2bd330" />
