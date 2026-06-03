@@ -5,8 +5,9 @@ library(ggrastr)
 
 args <- commandArgs(trailingOnly = TRUE)
 data <- fread(args[1])
-data$scaffold <- sub(".*\\.", "", data$chr)
-data$log10p <- -log10(data$p_var)
+data$scaffold <- round(as.integer(substr(data$chr, 10, 15)))
+data$p_adj <- p.adjust(data$p_var, method = "fdr")
+data$log10p_adj <- -log10(data$p_adj)
 
 data <- data %>%
   arrange(scaffold, pos) %>%
@@ -14,7 +15,7 @@ data <- data %>%
 
 message("Plotting...")
 
-plot <- ggplot(data, aes(x=order, y=log10p)) +
+plot <- ggplot(data, aes(x=order, y=log10p_adj)) +
   geom_point_rast(size = 0.5, aes(color = as.factor(scaffold)), alpha = 0.5, raster.dpi = 100) +
   theme_minimal() +
   theme(
@@ -30,6 +31,6 @@ plot <- ggplot(data, aes(x=order, y=log10p)) +
   ylim(0,NA)
 
 message(paste0("Saving Plot to ", args[1], "_manhattan.pdf..."))
-ggsave(paste0(args[1], "_manhattan.pdf"), plot = plot, width = 7, height = 2, device = "pdf")
+ggsave(paste0(args[1], "_manhattan.pdf"), plot = plot, width = 7, height = 2, device = "png", dpi = 80)
 
 message("Done!")
