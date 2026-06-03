@@ -5,6 +5,12 @@ The script ```envcoor.r``` looks at (and plots) correlations between all of the 
 
 The script ```run_LFMM.r``` runs LFMM on a provided vcf and tif raster file, with the usage ```Rscript run_LFMM.r <vcf> <tif>```.
 
+~~~
+mkdir -p gtmatrix
+vcftools --gzvcf /media/maxlaubstein/data1/STJARangewideGenomics/vcfdata/Cyanocitta_Clean_Autosomal_No_Mesoamerica.vcf.gz --012 --out Cyanocitta_Clean_Autosomal_No_Mesoamerica
+mv Cyanocitta_Clean_Autosomal_No_Mesoamerica* gtmatrix/
+~~~
+
 Because (as far as I can tell) LFMM runs single threaded, I wrote this so I could run LFMM separately for each variable of interest in a separate screen session. For example, in separate screen sessions:
 
 ~~~
