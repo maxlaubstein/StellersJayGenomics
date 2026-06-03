@@ -37,6 +37,6 @@ plot <- ggplot(data, aes(x=order, y=log10p_adj)) +
   ylim(0,NA)
 
 message(paste0("Saving Plot to ", args[1], "_manhattan.pdf..."))
-ggsave(paste0(args[1], "_manhattan.pdf"), plot = plot, width = 7, height = 2, device = "png", dpi = 80)
+ggsave(paste0(args[1], "_manhattan.png"), plot = plot, width = 7, height = 2, device = "png", dpi = 80)
 
 message("Done!")
