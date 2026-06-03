@@ -46,6 +46,6 @@ env$var <- raster::extract(env_var_rast, cbind(env$long, env$lat))[,1]
 
 #write env data to file:
 env <- env %>% dplyr::select("individual", "var")
-write.table(env, file = paste0(basename(tif), ".tsv"), row.names = FALSE, col.names = TRUE, quote = FALSE)
+write.table(env, file = paste0(basename(tif), ".tsv"), row.names = FALSE, col.names = TRUE, quote = FALSE, sep = "\t")
 
 
