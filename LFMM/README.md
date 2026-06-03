@@ -13,6 +13,8 @@ vcftools --gzvcf /media/maxlaubstein/data1/STJARangewideGenomics/vcfdata/Cyanoci
 mv Cyanocitta_Clean_Autosomal_No_Mesoamerica* gtmatrix/
 cd gtmatrix
 cut -f2- Cyanocitta_Clean_Autosomal_No_Mesoamerica.012 > Cyanocitta_Clean_Autosomal_No_Mesoamerica.lfmm #get rid of rownumbers
+mv Cyanocitta_Clean_Autosomal_No_Mesoamerica.012.indv Cyanocitta_Clean_Autosomal_No_Mesoamerica.lfmm.indv
+mv Cyanocitta_Clean_Autosomal_No_Mesoamerica.012.pos Cyanocitta_Clean_Autosomal_No_Mesoamerica.lfmm.pos
 cd ../
 ~~~
 
