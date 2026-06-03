@@ -15,7 +15,7 @@ data <- data %>%
 message("Plotting...")
 
 plot <- ggplot(data, aes(x=order, y=log10p)) +
-  geom_point_rast(size = 0.5, aes(color = as.factor(scaffold)), alpha = 0.5, raster.dpi = 1000) +
+  geom_point_rast(size = 0.5, aes(color = as.factor(scaffold)), alpha = 0.5, raster.dpi = 100) +
   theme_minimal() +
   theme(
     legend.position = "none",
