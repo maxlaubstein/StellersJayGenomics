@@ -1,10 +1,12 @@
-library(dplyr)
-library(terra)
-library(geodata)
-library(readxl)
-library(raster)
-library(data.table)
-library(readr)
+suppressWarnings(suppressMessages({
+  library(dplyr)
+  library(terra)
+  library(geodata)
+  library(readxl)
+  library(raster)
+  library(data.table)
+  library(readr)
+}))
 
 args <- commandArgs(trailingOnly = TRUE)
 
