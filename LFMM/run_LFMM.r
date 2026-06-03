@@ -52,6 +52,8 @@ message("Running LFMM...")
 ridge_results <- LEA::lfmm2(input = gt_matrix, env = paste0(basename(tif), ".env"), K = 4)
 
 message("Saving Output...")
+save(ridge_results, file = paste0(basename(tif), "_ridge_results.RData"))
 
-write.table(ridge_results$df, file = paste0(basename(tif), "_ridge_results.txt"))
+
+
 
