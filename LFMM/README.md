@@ -1,29 +1,23 @@
 
-Genotype-Environment Association analysis using Latent Factor Mixed Modeling (LFMM) with Steller's Jays.
+## Genotype-Environment Association analysis using Latent Factor Mixed Modeling (LFMM) with Steller's Jays.
 
 The script ```envcoor.r``` looks at (and plots) correlations between all of the different bioclim and some envirem variables.
 
-The script ```run_LFMM.r``` runs LFMM on a provided 012 genotype dosage matrix and tif raster file, with the usage ```Rscript run_LFMM.r <gt_matrix> <tif>```.
+I'm using the new implementation of LFMM in **schnelLFMM** (https://github.com/kdm9/schnelLFMM), which works much better for big SNP datasets.
 
-I generated the dosage matrix from a vcf file as follows:
+First I have to convert the vcf into a plink bed file for input:
+~~~
+mkdir -p input
+cd input
+plink --vcf /media/maxlaubstein/data1/STJARangewideGenomics/vcfdata/Cyanocitta_Clean_Autosomal_No_Mesoamerica.vcf.gz \
+    --const-fid \
+    --allow-extra-chr \
+    --allow-no-sex \
+    --set-missing-var-ids @:#  \
+    --make-bed  \
+    --out Cyanocitta_Clean_Autosomal_No_Mesoamerica
+~~~
 
-~~~
-mkdir -p gtmatrix
-cd gtmatrix
-vcftools --gzvcf /media/maxlaubstein/data1/STJARangewideGenomics/vcfdata/Cyanocitta_Clean_Autosomal_No_Mesoamerica.vcf.gz --012 --out Cyanocitta_Clean_Autosomal_No_Mesoamerica
-cut -f2- Cyanocitta_Clean_Autosomal_No_Mesoamerica.012 > Cyanocitta_Clean_Autosomal_No_Mesoamerica.lfmm #get rid of rownumbers
-mv Cyanocitta_Clean_Autosomal_No_Mesoamerica.012.indv Cyanocitta_Clean_Autosomal_No_Mesoamerica.lfmm.indv
-mv Cyanocitta_Clean_Autosomal_No_Mesoamerica.012.pos Cyanocitta_Clean_Autosomal_No_Mesoamerica.lfmm.pos
-cd ../
-~~~
-
-Because (as far as I can tell) LFMM runs single threaded, I wrote this so I could run LFMM separately for each variable of interest in a separate screen session. For example, in separate screen sessions:
-
-~~~
-Rscript run_LFMM.r \
-  gtmatrix/Cyanocitta_Clean_Autosomal_No_Mesoamerica.012 \
-  globalworldclim/climate/wc2.1_2.5m/wc2.1_2.5m_bio_5.tif 
-~~~
 
 
 Plot of correlations between different bioclim/envirem variables: 
