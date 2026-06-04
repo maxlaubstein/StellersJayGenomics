@@ -4,9 +4,9 @@ library(ape)
 library(ggplot2)
 library(ggrepel)
 data <- fread("output/bio15.tsv")
-gff <- read.gff("STJA/GCA_026167965.1_bCyaSte1.0.p_liftoff.gff.gz")
+gff <- read.gff("../GCA_026167965.1_bCyaSte1.0.p_liftoff.gff.gz")
 gff <- subset(gff, gff$type == "gene")
-repeats <- read.gff("~/Downloads/bCyaSte1.NCBI.p_ctg.fasta.out.gff.gz")
+repeats <- read.gff("../bCyaSte1.NCBI.p_ctg.fasta.out.gff")
 
 
 data$scaffold <- round(as.integer(substr(data$chr, 10, 15)))
