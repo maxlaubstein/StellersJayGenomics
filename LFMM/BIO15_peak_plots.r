@@ -60,7 +60,7 @@ scaff2plot <- ggplot()+
                              ends = "last", type = "closed"),
                color = "black", size = 0.2) +
   xlim((34182127- 263845), (34182127+ 263845))+
-  coord_cartesian(ylim = c(-3, 6)) +  # force y-axis limits without clipping data
+  coord_cartesian(ylim = c(-3, 6.5)) +  # force y-axis limits without clipping data
   xlab("Position on Scaffold 2 (Mb)")+
   ylab("-log10(p)")+
   scale_x_continuous(
@@ -102,7 +102,7 @@ scaff19plot <- ggplot()+
                              ends = "last", type = "closed"),
                color = "black", size = 0.2) +
   xlim((14013845- 263845), (14013845+ 263845))+
-  coord_cartesian(ylim = c(-3, 6)) +  # force y-axis limits without clipping data
+  coord_cartesian(ylim = c(-3, 6.5)) +  # force y-axis limits without clipping data
   xlab("Position on Scaffold 19 (Mb)")+
   ylab("-log10(p)")+
   scale_x_continuous(
