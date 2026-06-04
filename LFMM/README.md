@@ -37,19 +37,6 @@ schnellfmm --bed input/Cyanocitta_Clean_Autosomal_No_Mesoamerica.bed \
 ~~~
 
 For the rest:
-~~~
-#BIO7
-cd input
-Rscript ../make_env_data.r ../globalworldclim/climate/wc2.1_2.5m/wc2.1_2.5m_bio_7.tif Cyanocitta_Clean_Autosomal_No_Mesoamerica.fam
-cd ../
-schnellfmm --bed input/Cyanocitta_Clean_Autosomal_No_Mesoamerica.bed \
-    --cov input/wc2.1_2.5m_bio_7.tif.tsv \
-    -k 4 \
-    --verbose \
-    --out output/bio7 \
-    --threads 4 \
-    --seed 1
-~~~
 
 ~~~
 #BIO15
