@@ -114,9 +114,6 @@ schnellfmm --bed input/Cyanocitta_Clean_Autosomal_No_Mesoamerica.bed \
 ## BIO5
 <img width="5600" height="1600" alt="bio5 tsv_manhattan" src="https://github.com/user-attachments/assets/7bf88b92-8710-4dc1-8f79-d02f6c808c4b" />
 
-## BIO7
-<img width="5600" height="1600" alt="bio7 tsv_manhattan" src="https://github.com/user-attachments/assets/21386923-39c3-4ddf-bb4d-80952049c712" />
-
 ## BIO15
 <img width="5600" height="1600" alt="bio15 tsv_manhattan" src="https://github.com/user-attachments/assets/ee7ffbc8-f9e7-4d85-8a2f-5c1d3d4c9ba5" />
 
