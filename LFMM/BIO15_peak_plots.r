@@ -1,4 +1,3 @@
-setwd("~/Desktop/")
 library(data.table)
 library(ape)
 library(ggplot2)
