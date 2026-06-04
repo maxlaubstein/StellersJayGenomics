@@ -129,5 +129,10 @@ schnellfmm --bed input/Cyanocitta_Clean_Autosomal_No_Mesoamerica.bed \
 ## PET Wettest Quarter
 <img width="5600" height="1600" alt="PETWettest tsv_manhattan" src="https://github.com/user-attachments/assets/f209b77f-1c97-4ab0-a422-48c9d2c10992" />
 
+## BIO15 Peak Plots:
+<img width="2800" height="2000" alt="Scaffold_2_LFMM" src="https://github.com/user-attachments/assets/223e7ca6-17b5-4ee0-b091-62c971d9acb6" />
+<img width="2800" height="2000" alt="Scaffold_19_LFMM" src="https://github.com/user-attachments/assets/37c2158b-fba5-4cd7-a079-268691b7482f" />
+
+
 
 
