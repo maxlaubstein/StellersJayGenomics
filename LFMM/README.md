@@ -121,6 +121,29 @@ schnellfmm --bed input/Cyanocitta_Clean_Autosomal_No_Mesoamerica.bed \
     --seed 1
 ~~~
 
-
-Plot of correlations between different bioclim/envirem variables: 
+## Plot of correlations between different bioclim/envirem variables: 
 <img width="766" height="757" alt="Screenshot 2026-06-02 at 5 51 48 PM" src="https://github.com/user-attachments/assets/989f269f-9ce1-4bc5-b074-8f7f5a2bd330" />
+
+## BIO5
+<img width="5600" height="1600" alt="bio5 tsv_manhattan" src="https://github.com/user-attachments/assets/7bf88b92-8710-4dc1-8f79-d02f6c808c4b" />
+
+## BIO7
+<img width="5600" height="1600" alt="bio7 tsv_manhattan" src="https://github.com/user-attachments/assets/21386923-39c3-4ddf-bb4d-80952049c712" />
+
+## BIO15
+<img width="5600" height="1600" alt="bio15 tsv_manhattan" src="https://github.com/user-attachments/assets/ee7ffbc8-f9e7-4d85-8a2f-5c1d3d4c9ba5" />
+
+## BIO18
+<img width="5600" height="1600" alt="bio18 tsv_manhattan" src="https://github.com/user-attachments/assets/4f744e94-c15e-4cc9-aa06-a3eee5d3d320" />
+
+## Min. Temperature Warmest Quarter
+<img width="5600" height="1600" alt="minTwarmest tsv_manhattan" src="https://github.com/user-attachments/assets/85d3eda0-b8da-41e4-851e-e6348f418501" />
+
+## PET Seasonality
+<img width="5600" height="1600" alt="PETSeasonality tsv_manhattan" src="https://github.com/user-attachments/assets/c518e10c-263f-49b3-9342-a4e80b56c5de" />
+
+## PET Wettest Quarter
+<img width="5600" height="1600" alt="PETWettest tsv_manhattan" src="https://github.com/user-attachments/assets/f209b77f-1c97-4ab0-a422-48c9d2c10992" />
+
+
+
