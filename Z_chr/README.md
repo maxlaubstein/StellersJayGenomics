@@ -96,3 +96,9 @@ Run PCA on the LD pruned files, with and without the 4 Mesoamerican samples:
 plink --vcf Cyanocitta_LDPruned_Z.vcf.gz  --const-fid --allow-extra-chr --allow-no-sex --set-missing-var-ids @:#  --pca  --out Z_PCA
 plink --vcf Cyanocitta_LDPruned_Z_No_Mesoamerica.vcf.gz  --const-fid --allow-extra-chr --allow-no-sex --set-missing-var-ids @:#  --pca  --out Z_PCA_nomeso
 ~~~
+
+Plot them:
+~~~
+Rscript Z_pca_plot.r
+Rscript Z_pca_plot_nomeso.r
+~~~
