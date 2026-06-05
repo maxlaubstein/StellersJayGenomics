@@ -1,5 +1,7 @@
 ## Assessing Population Structure and Divergence on the Z Chromosome:
 
+<img width="864" height="863" alt="Screenshot 2026-06-05 at 6 01 00 PM" src="https://github.com/user-attachments/assets/cc8d7eed-6457-43c3-bff2-c49b870fe60f" />
+
 Creating a Z only vcf file:
 ~~~
 vcftools --gzvcf /media/maxlaubstein/data1/STJARangewideGenomics/vcfdata/Cyanocitta_clean.vcf.gz \
