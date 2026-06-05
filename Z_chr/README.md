@@ -119,3 +119,12 @@ vcftools --gzvcf Cyanocitta_Clean_Z_No_Mesoamerica.vcf.gz \
         --weir-fst-pop Rocky \
         --out Z_IntNW.V.Rocky
 ~~~
+
+Plot it:
+~~~
+Rscript Z_IntNW.V.Rocky_FST_plot.r
+........................................
+    2.5%    97.5% 
+0.226271 0.819944 
+[1] 0.523369
+~~~
