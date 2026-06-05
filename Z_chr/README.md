@@ -102,3 +102,20 @@ Plot them:
 Rscript Z_pca_plot.r
 Rscript Z_pca_plot_nomeso.r
 ~~~
+
+Now look at FST in sliding windows:
+~~~
+awk '$2 >= 69 && $2 <= 79 {print $1}' /media/maxlaubstein/data1/STJARangewideGenomics/populations > IntNW
+awk '$2 >= 86 && $2 <= 102 {print $1}' /media/maxlaubstein/data1/STJARangewideGenomics/populations > Rocky
+
+wc -l IntNW
+wc -l Rocky
+
+vcftools --gzvcf Cyanocitta_Clean_Z_No_Mesoamerica.vcf.gz \
+        --fst-window-size 25000 \
+        --fst-window-step 10000 \
+        --mac 1 \
+        --weir-fst-pop IntNW \
+        --weir-fst-pop Rocky \
+        --out Z_IntNW.V.Rocky
+~~~
