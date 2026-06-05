@@ -106,7 +106,7 @@ Rscript Z_pca_plot_nomeso.r
 Now look at FST in sliding windows:
 ~~~
 awk '$2 >= 69 && $2 <= 79 {print $1}' /media/maxlaubstein/data1/STJARangewideGenomics/populations > IntNW
-awk '$2 >= 86 && $2 <= 102 {print $1}' /media/maxlaubstein/data1/STJARangewideGenomics/populations > Rocky
+awk '$2 >= 89 && $2 <= 102 {print $1}' /media/maxlaubstein/data1/STJARangewideGenomics/populations > Rocky
 
 wc -l IntNW
 wc -l Rocky
