@@ -36,7 +36,7 @@ r <- bio15
 r_df <- as.data.frame(r, xy = TRUE)  # xy = TRUE adds coordinates
 colnames(r_df) <- c("x", "y", "BIO7")  # optional, rename columns
 
-system("bcftools view -r JANXIP010000019.1.1:14013369 ../vcfdata/Cyanocitta_Clean_Autosomal_No_Mesoamerica.vcf.gz > scaff19snp.vcf")
+system("bcftools view -r JANXIP010000019.1:14013369 ../vcfdata/Cyanocitta_Clean_Autosomal_No_Mesoamerica.vcf.gz > scaff19snp.vcf")
 #genotypes at scaff2 peak:
 vcf <- read.vcfR("scaff19snp.vcf")
 gt <-as.data.frame(t(extract.gt(vcf)))
