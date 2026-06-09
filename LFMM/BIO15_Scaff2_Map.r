@@ -111,5 +111,5 @@ plot <- ggplot(r_df) +
 #                 opacity = 0.6,
                  pie_size = radii)
 
-ggsave("plots/BIO15_map.pdf", plot = plot, width = 2.5, height = 2.5, units = "in")
+ggsave("plots/BIO15_Scaff2_Map.pdf", plot = plot, width = 2.5, height = 2.5, units = "in")
 
