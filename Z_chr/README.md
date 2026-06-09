@@ -130,3 +130,27 @@ Rscript Z_IntNW.V.Rocky_FST_plot.r
 0.226271 0.819944 
 [1] 0.523369
 ~~~
+
+Relaxing definitions of "pure" Interior Northwestern and Rocky Mountains populations:
+~~~
+awk '$2 >= 69 && $2 <= 82 {print $1}' /media/maxlaubstein/data1/STJARangewideGenomics/populations > IntNW_relaxed
+awk '$2 >= 86 && $2 <= 102 {print $1}' /media/maxlaubstein/data1/STJARangewideGenomics/populations > Rocky_relaxed
+
+wc -l IntNW_relaxed
+wc -l Rocky_relaxed
+
+vcftools --gzvcf Cyanocitta_Clean_Z_No_Mesoamerica.vcf.gz \
+        --fst-window-size 25000 \
+        --fst-window-step 10000 \
+        --mac 1 \
+        --weir-fst-pop IntNW_relaxed \
+        --weir-fst-pop Rocky_relaxed \
+        --out Z_IntNW.V.Rocky_relaxed
+
+Rscript Rscript Z_IntNW.V.Rocky_Relaxed_FST_plot.r
+........................................
+     2.5%     97.5% 
+0.2008968 0.7731256 
+[1] 0.4750829
+~~~
+
