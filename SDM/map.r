@@ -1,6 +1,9 @@
 library(terra)
 library(readxl)
 library(dplyr)
+library(ggplot2)
+library(ggstar)
+
 metadata <- read_excel("/media/maxlaubstein/data1/STJARangewideGenomics/1_Cyanocitta_stelleri_WGS_metadata_allsamples_fulldata_v2.xlsx")
 metadata$`Pop # rev` <- as.integer(metadata$`Pop # rev`)
 interior_current_aicVarSelect_withLC <- rast("/media/maxlaubstein/data1/STJARangewideGenomics/SDM/data/SDM/finalSDMmodels/interior_current_aicVarSelect_withLC.tif")
@@ -47,9 +50,6 @@ rockies <- subset(localitysummary, localitysummary$pop %in% c(89:102))
 
 
 radii <- (localitysummary$samplesize*0.025)+0.1
-
-library(ggstar)
-
 
 plot <- ggplot()+
   geom_sf(data = region, fill = 'white', lwd = .6)+
