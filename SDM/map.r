@@ -1,5 +1,6 @@
 library(terra)
 library(readxl)
+library(dplyr)
 metadata <- read_excel("/media/maxlaubstein/data1/STJARangewideGenomics/1_Cyanocitta_stelleri_WGS_metadata_allsamples_fulldata_v2.xlsx")
 metadata$`Pop # rev` <- as.integer(metadata$`Pop # rev`)
 interior_current_aicVarSelect_withLC <- rast("/media/maxlaubstein/data1/STJARangewideGenomics/SDM/data/SDM/finalSDMmodels/interior_current_aicVarSelect_withLC.tif")
