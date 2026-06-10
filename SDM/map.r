@@ -68,6 +68,7 @@ plot <- ggplot()+
   geom_star(data = scz, aes(x=longitude, y=latitude, size = samplesize), fill = "#FFD23F", color = 'black', starshape = 29, alpha = 0.75, starstroke = 0.35)+
   geom_point(data = rockies, aes(x=longitude, y=latitude, size = samplesize), fill = alpha("#fd7f6f", .75), color = 'black', pch = 21, stroke = 0.35)+
   scale_fill_gradient(low = NA ,high = "#3D6F2E")+
+  scale_size_continuous("Sample Size", range = (c(2.5, 7))*.5, breaks = (c(2,5,10))*.5)+
   coord_sf(xlim = c(-126, -103.5), ylim = c(30, 50), expand = FALSE)+
   theme_minimal() + 
   xlab(NULL)+
@@ -92,6 +93,7 @@ plot <- ggplot()+
   geom_point(data = ncz, aes(x=longitude, y=latitude, size = samplesize), fill = alpha("#FFD23F", .75), color = 'black', pch = 23, stroke = 0.35)+
   geom_star(data = scz, aes(x=longitude, y=latitude, size = samplesize), fill = "#FFD23F", color = 'black', starshape = 29, alpha = 0.75, starstroke = 0.35)+
   geom_point(data = rockies, aes(x=longitude, y=latitude, size = samplesize), fill = alpha("#fd7f6f", .75), color = 'black', pch = 21, stroke = 0.35)+
+  scale_size_continuous("Sample Size", range = (c(2.5, 7))*.5, breaks = (c(2,5,10))*.5)+
   coord_sf(xlim = c(-114.15, -108.8), ylim = c(39, 44.1), expand = FALSE)+
   theme_minimal() + 
   xlab(NULL)+
