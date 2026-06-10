@@ -30,8 +30,7 @@ FST$WINDOW <- c(1:(nrow(FST)))
 
 #Manhattan Plot showing WEIGHTED FST
 plot <- ggplot(data = FST, aes(x= WINDOW, y = WEIGHTED_FST)) +
-  geom_point_rast(aes(color = as.factor(SCAFFOLD)), alpha = .5, raster.dpi = 1000, size = 0.5)+
-  scale_color_manual(values = rep(c('gray40','black'), 165)) + 
+  geom_point_rast(color = 'black' alpha = .5, raster.dpi = 1000, size = 0.5)+
   xlab("Sliding Windows Across Z Scaffold")+
   ylab(bquote(F[st]))+
   geom_hline(yintercept = mean(subset(FST, FST$WEIGHTED_FST >=0)$WEIGHTED_FST), color = '#3A74A1', linetype="dashed")+
