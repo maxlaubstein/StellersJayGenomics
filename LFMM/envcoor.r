@@ -39,6 +39,7 @@ bio18 <- rast("/media/maxlaubstein/data1/STJARangewideGenomics/GEA/globalworldcl
 bio19 <- rast("/media/maxlaubstein/data1/STJARangewideGenomics/GEA/globalworldclim/climate/wc2.1_2.5m/wc2.1_2.5m_bio_19.tif")
 
 minTwarmest <- rast("/media/maxlaubstein/data1/STJARangewideGenomics/GEA/NAmerica_current_2.5arcmin_geotiff/current_2-5arcmin_minTempWarmest.tif")
+PETwettest <- rast("/media/maxlaubstein/data1/STJARangewideGenomics/GEA/NAmerica_current_2.5arcmin_geotiff/current_2-5arcmin_PETWettestQuarter.tif")
 PETdriest <- rast("/media/maxlaubstein/data1/STJARangewideGenomics/GEA/NAmerica_current_2.5arcmin_geotiff/current_2-5arcmin_PETDriestQuarter.tif")
 PETseasonality <- rast("/media/maxlaubstein/data1/STJARangewideGenomics/GEA/NAmerica_current_2.5arcmin_geotiff/current_2-5arcmin_PETseasonality.tif")
 
@@ -76,6 +77,7 @@ env$bio19 <- raster::extract(bio19, cbind(env$long, env$lat))[,1]
 
 
 env$minTwarmest <- raster::extract(minTwarmest, cbind(env$long, env$lat))[,1]
+env$PETwettest <- raster::extract(PETwettest, cbind(env$long, env$lat))[,1] 
 env$PETdriest <- raster::extract(PETdriest, cbind(env$long, env$lat))[,1]
 env$PETseasonality <- raster::extract(PETseasonality, cbind(env$long, env$lat))[,1]
 
@@ -84,6 +86,6 @@ pdf("env_coor.pdf", width = 14, height = 14)  #
 pairs.panels(env[,c("bio1", "bio2", "bio3", "bio4", "bio5", "bio6", 
 		"bio7", "bio8", "bio9", "bio10", "bio11", "bio12", 
 		"bio13", "bio14", "bio15", "bio16", "bio17", "bio18", 
-		"bio19", "minTwarmest", "PETdriest", "PETseasonality")], scale = TRUE)
+		"bio19", "minTwarmest", "PETwettest", "PETdriest", "PETseasonality")], scale = TRUE)
 
 dev.off()
