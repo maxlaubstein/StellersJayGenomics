@@ -109,7 +109,8 @@ schnellfmm --bed input/Cyanocitta_Clean_Autosomal_No_Mesoamerica.bed \
 ~~~
 
 ## Plot of correlations between different bioclim/envirem variables: 
-<img width="766" height="757" alt="Screenshot 2026-06-02 at 5 51 48 PM" src="https://github.com/user-attachments/assets/989f269f-9ce1-4bc5-b074-8f7f5a2bd330" />
+<img width="882" height="882" alt="Screenshot 2026-06-11 at 1 36 20 AM" src="https://github.com/user-attachments/assets/be89be07-78f0-4ec5-80bc-4ee5be3ca174" />
+
 
 ## BIO5
 <img width="5600" height="1600" alt="bio5 tsv_manhattan" src="https://github.com/user-attachments/assets/7bf88b92-8710-4dc1-8f79-d02f6c808c4b" />
