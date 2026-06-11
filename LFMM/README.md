@@ -67,15 +67,15 @@ schnellfmm --bed input/Cyanocitta_Clean_Autosomal_No_Mesoamerica.bed \
 ~~~
 
 ~~~
-#PETWettest
+#PETDriest
 cd input
-Rscript ../make_env_data.r ../NAmerica_current_2.5arcmin_geotiff/current_2-5arcmin_PETWettestQuarter.tif Cyanocitta_Clean_Autosomal_No_Mesoamerica.fam
+Rscript ../make_env_data.r ../NAmerica_current_2.5arcmin_geotiff/current_2-5arcmin_PETDriestQuarter.tif Cyanocitta_Clean_Autosomal_No_Mesoamerica.fam
 cd ../
 schnellfmm --bed input/Cyanocitta_Clean_Autosomal_No_Mesoamerica.bed \
-    --cov input/current_2-5arcmin_PETWettestQuarter.tif.tsv \
+    --cov input/current_2-5arcmin_PETDriestQuarter.tif.tsv \
     -k 4 \
     --verbose \
-    --out output/PETWettest \
+    --out output/PETDriest \
     --threads 4 \
     --seed 1
 ~~~
