@@ -113,22 +113,22 @@ schnellfmm --bed input/Cyanocitta_Clean_Autosomal_No_Mesoamerica.bed \
 
 
 ## BIO5
-<img width="5600" height="1600" alt="bio5 tsv_manhattan" src="https://github.com/user-attachments/assets/7bf88b92-8710-4dc1-8f79-d02f6c808c4b" />
+<img width="7000" height="2000" alt="bio5 tsv_manhattan" src="https://github.com/user-attachments/assets/4277aec3-de9e-4e7e-b3df-34d7550fbe22" />
 
 ## BIO15
-<img width="5600" height="1600" alt="bio15 tsv_manhattan" src="https://github.com/user-attachments/assets/ee7ffbc8-f9e7-4d85-8a2f-5c1d3d4c9ba5" />
+<img width="7000" height="2000" alt="bio15 tsv_manhattan" src="https://github.com/user-attachments/assets/9b4aec18-5ffe-49cd-a2cd-cc3915a90a57" />
 
 ## BIO18
-<img width="5600" height="1600" alt="bio18 tsv_manhattan" src="https://github.com/user-attachments/assets/4f744e94-c15e-4cc9-aa06-a3eee5d3d320" />
+<img width="7000" height="2000" alt="bio18 tsv_manhattan" src="https://github.com/user-attachments/assets/f96fee19-cd35-4fc0-a332-b2e73b249bb1" />
 
 ## Min. Temperature Warmest Quarter
-<img width="5600" height="1600" alt="minTwarmest tsv_manhattan" src="https://github.com/user-attachments/assets/85d3eda0-b8da-41e4-851e-e6348f418501" />
+<img width="7000" height="2000" alt="minTwarmest tsv_manhattan" src="https://github.com/user-attachments/assets/64d63313-a815-4241-ba33-9df631b4d83b" />
 
 ## PET Seasonality
-<img width="5600" height="1600" alt="PETSeasonality tsv_manhattan" src="https://github.com/user-attachments/assets/c518e10c-263f-49b3-9342-a4e80b56c5de" />
+<img width="7000" height="2000" alt="PETSeasonality tsv_manhattan" src="https://github.com/user-attachments/assets/201bd4be-6081-4f66-920c-9d0a358d21c9" />
 
-## PET Wettest Quarter
-<img width="5600" height="1600" alt="PETWettest tsv_manhattan" src="https://github.com/user-attachments/assets/f209b77f-1c97-4ab0-a422-48c9d2c10992" />
+## PET Driest Quarter
+<img width="7000" height="2000" alt="PETDriest tsv_manhattan" src="https://github.com/user-attachments/assets/8dc1ddd3-ff69-4785-a376-726eac049105" />
 
 ## BIO15 Peak Plots:
 <img width="2800" height="2000" alt="Scaffold_2_LFMM" src="https://github.com/user-attachments/assets/223e7ca6-17b5-4ee0-b091-62c971d9acb6" />
