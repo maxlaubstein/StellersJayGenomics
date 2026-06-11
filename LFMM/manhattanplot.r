@@ -12,7 +12,9 @@ data$scaffold <- round(as.integer(substr(data$chr, 10, 15)))
 
 message("Correcting p-values...")
 data$p_adj <- p.adjust(data$p_var, method = "fdr")
-data$log10p_adj <- -log10(data$p_adj)
+message(paste0("There are ", sum(data$p_adj < 0.01), " significant SNPs at FDR = 0.01"))
+data$sig <- data$p_adj < 0.01
+data$log10p_raw <- -1*log10(data$p_var)
 
 message("Ordering Scaffolds...")
 data <- data %>%
@@ -21,8 +23,10 @@ data <- data %>%
 
 message("Plotting...")
 
-plot <- ggplot(data, aes(x=order, y=log10p_adj)) +
+plot <- ggplot(data, aes(x=order, y=log10p_raw)) +
   geom_point_rast(size = 0.5, aes(color = as.factor(scaffold)), alpha = 0.5, raster.dpi = 1000) +
+  geom_point(data = subset(data, data$sig == TRUE), aes(x=order, y = log10p_raw), color = "#3A74A1") +
+  geom_hline(yintercept = min(subset(data, data$sig == TRUE)$log10p_raw),  color = '#3A74A1', linetype="dashed")+
   theme_minimal() +
   theme(
     legend.position = "none",
