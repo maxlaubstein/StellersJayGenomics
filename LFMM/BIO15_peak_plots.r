@@ -9,15 +9,16 @@ repeats <- read.gff("../bCyaSte1.NCBI.p_ctg.fasta.out.gff")
 
 
 data$scaffold <- round(as.integer(substr(data$chr, 10, 15)))
-data$log10p_raw <- -1*log10(data$p_var)
+data$p_adj <- p.adjust(data$p_var, method = "fdr")
+data$log10_adj <- -log10(data$p_adj)
 
 message("Where are the 2 main peaks?:")
 message("Top 10 SNPs:")
-data[order(data$log10p_raw, decreasing = TRUE)[1:10],c("chr", "pos", "log10p_raw")]
+data[order(data$log10_adj, decreasing = TRUE)[1:10],c("chr", "pos", "log10_adj")]
 
 candidates <- function(lfmmoutput, windowsize, threshold, gff) {
   genesofinterest <- list()
-  snpsofinterest <- subset(lfmmoutput, lfmmoutput$log10p_raw >= threshold)
+  snpsofinterest <- subset(lfmmoutput, lfmmoutput$log10_adj >= threshold)
   for(i in 1:nrow(snpsofinterest)) {
     gff.tmp <- subset(gff, gff$seqid == snpsofinterest$chr[i])
     gff.tmp <- subset(gff.tmp, gff.tmp$start <= (snpsofinterest$pos[i] + windowsize) &
@@ -49,7 +50,7 @@ scaff2plot <- ggplot()+
                   aes(label = gene,
                       x = ((start + end)/2), 
                       y = rep(c(0,-.6, -1.2, -1.8), length.out = nrow(scaff2annotated)) - .6), point.size = NA, direction = "x",  force = 0.1, box.padding = 0.1)+
-  geom_point(data = scaff2, aes(x=pos, y = log10p_raw), size = 0.5)+
+  geom_point(data = scaff2, aes(x=pos, y = log10_adj), size = 0.5)+
   geom_segment(data = scaff2annotated,
                aes(x = ifelse(strand == "+", start, end),
                    xend = ifelse(strand == "+", end, start),
@@ -91,7 +92,7 @@ scaff19plot <- ggplot()+
   geom_rect(data = subset(repeats, repeats$seqid == "SCAF_19"),
             fill = 'darkred',
             aes(xmin = start, xmax = end, ymin = -.45, ymax = -.15))+
-  geom_point(data = scaff19, size = 0.5, aes(x=pos, y = log10p_raw))+
+  geom_point(data = scaff19, size = 0.5, aes(x=pos, y = log10_adj))+
   geom_segment(data = scaff19annotated,
                aes(x = ifelse(strand == "+", start, end),
                    xend = ifelse(strand == "+", end, start),
