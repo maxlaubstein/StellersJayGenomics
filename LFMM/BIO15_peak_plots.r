@@ -62,7 +62,7 @@ scaff2plot <- ggplot()+
   xlim((34182127- 263845), (34182127+ 263845))+
   coord_cartesian(ylim = c(-3, 6.5)) +  # force y-axis limits without clipping data
   xlab("Position on Scaffold 2 (Mb)")+
-  ylab("-log10(p)")+
+  ylab("-log10(q)")+
   scale_x_continuous(
     limits = c(34182127 - 263845, 34182127 + 263845),
     labels = function(x) sprintf("%.1f", x / 1e6),
@@ -104,7 +104,7 @@ scaff19plot <- ggplot()+
   xlim((14013845- 263845), (14013845+ 263845))+
   coord_cartesian(ylim = c(-3, 6.5)) +  # force y-axis limits without clipping data
   xlab("Position on Scaffold 19 (Mb)")+
-  ylab("-log10(p)")+
+  ylab("-log10(q)")+
   scale_x_continuous(
     limits = c(14013845 - 263845, 14013845 + 263845),
     labels = function(x) sprintf("%.1f", x / 1e6),
