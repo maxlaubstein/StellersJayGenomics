@@ -33,7 +33,7 @@ candidates <- function(lfmmoutput, windowsize, threshold, gff) {
 }
 
 
-out <- candidates(data, 499000, 3, gff)
+out <- candidates(data, 499000, 2, gff)
 
 scaff2 <- subset(data, data$chr == "JANXIP010000002.1" & data$pos >= (34182127- 263845) & data$pos <= (34182127+ 263845))
 scaff2annotated <- out[["JANXIP010000002.1:34182127"]]
