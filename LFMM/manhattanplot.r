@@ -25,7 +25,7 @@ message("Plotting...")
 
 plot <- ggplot(data, aes(x=order, y=log10p_raw)) +
   geom_point_rast(size = 0.5, aes(color = as.factor(scaffold)), alpha = 0.5, raster.dpi = 1000) +
-  geom_point(data = subset(data, data$sig == TRUE), aes(x=order, y = log10p_raw), color = "#3A74A1") +
+  geom_point(data = subset(data, data$sig == TRUE), aes(x=order, y = log10p_raw), color = "#3A74A1", size = 0.5) +
   geom_hline(yintercept = min(subset(data, data$sig == TRUE)$log10p_raw),  color = '#3A74A1', linetype="dashed")+
   theme_minimal() +
   theme(
