@@ -4,7 +4,9 @@ clam stat -o results/ -w 25000 -c /media/maxlaubstein/data1/STJARangewideGenomic
 
 Recombination:
 ~~~
-sed '1d' samples.tsv | awk '{print $1}' > keep
+sed '1d' samples.tsv | awk '{print $1}' > tmp
+paste tmp tmp > keep
+rm tmp
 plink --vcf /media/maxlaubstein/data1/STJARangewideGenomics/vcfdata/Cyanocitta_clean.vcf.gz \
   --mac 1 --r2 --ld-window-kb 25 --keep keep --allow-extra-chr
 ~~~
