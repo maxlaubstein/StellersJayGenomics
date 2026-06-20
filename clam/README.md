@@ -1,3 +1,10 @@
+STEPS:
+find the gq and depth filters used to make callable sites bed file.
+Subset raw vcf to biallelic snps in only those callable regions, no maf or missingness filter
+Run clam loci with the gq and depth filters (same as the ones used for callable sites) on the gvcfs
+Run clam stat with the loci zarr and callable vcf
+
+
 
 ~~~
 mkdir -p gvcfs
