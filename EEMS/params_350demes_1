@@ -1,0 +1,10 @@
+datapath = /media/maxlaubstein/data1/STJARangewideGenomics/EEMS/input/EEMS
+mcmcpath = /media/maxlaubstein/data1/STJARangewideGenomics/EEMS/output_350_1
+nIndiv = 306
+nSites = 2146582
+nDemes = 350
+diploid = true
+numMCMCIter = 200000000
+numBurnIter = 100000000
+numThinIter = 9999
+

@@ -1,0 +1,49 @@
+library(ggplot2)
+library(dplyr)
+library(data.table)
+library(ggrastr)
+
+args <- commandArgs(trailingOnly = TRUE)
+message("Reading Data...")
+data <- fread(args[1])
+
+message("Formatting Scaffolds...")
+data$scaffold <- round(as.integer(substr(data$chr, 10, 15)))
+
+message("Correcting p-values...")
+data$p_adj <- p.adjust(data$p_var, method = "fdr")
+message(paste0("There are ", sum(data$p_adj < 0.01), " significant SNPs at FDR = 0.01"))
+data$log10p_raw <- -1*log10(data$p_var)
+data$log10p_adj <- -1*log10(data$p_adj)
+data$sig <- data$p_adj < 0.01
+
+
+message("Ordering Scaffolds...")
+data <- data %>%
+  arrange(scaffold, pos) %>%
+  mutate(order = row_number())
+
+message("Plotting...")
+
+plot <- ggplot(data, aes(x=order, y=log10p_adj)) +
+  geom_point_rast(size = 0.5, aes(color = as.factor(scaffold)), alpha = 0.5, raster.dpi = 1000) +
+  geom_point(data = subset(data, data$sig == TRUE), aes(x=order, y = log10p_adj), color = "#3A74A1", size = 0.5) +
+  geom_hline(yintercept = 2,  color = '#3A74A1', linetype="dashed")+
+  theme_minimal() +
+  theme(
+    legend.position = "none",
+    panel.grid.major.x = element_blank(),
+    panel.grid.minor.x = element_blank(),
+    axis.ticks.x = element_blank(),
+    axis.text.x = element_blank()
+  ) +
+  scale_color_manual(values = rep(c('gray40','black'), 165)) +
+  ylab("-log10(q)") +
+  scale_x_continuous(expand = expansion(mult = 0.01))+
+  xlab("SNPs Ordered Across Scaffolds") +
+  ylim(0,NA)
+
+message(paste0("Saving Plot to /media/maxlaubstein/data1/STJARangewideGenomics/plots/", basename(args[1]), "_manhattan.pdf..."))
+ggsave(paste0("/media/maxlaubstein/data1/STJARangewideGenomics/plots/", basename(args[1]), "_manhattan.pdf"), plot = plot, width = 7, height = 2, device = "pdf")
+
+message("Done!")
